@@ -1,6 +1,6 @@
 ---
 name: switch
-pack: mistral-dev
+pack: mistral_dev
 runner_type: run-local-script
 description: Switch between the stackstorm/mistral and stackforge/mistral repo for development.
 enabled: true

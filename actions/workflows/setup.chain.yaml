@@ -32,7 +32,7 @@ chain:
         on-success: "install"
     -
         name: "install"
-        ref: "mistral-dev.install"
+        ref: "mistral_dev.install"
         params:
             hosts: "{{host}}"
             repo_main: "{{clone_mistral[host].stdout}}"
@@ -41,7 +41,7 @@ chain:
         on-success: "setup_config"
     -
         name: "setup_config"
-        ref: "mistral-dev.setup_config"
+        ref: "mistral_dev.setup_config"
         params:
             hosts: "{{host}}"
             mistral_path: "{{clone_mistral[host].stdout}}"
@@ -53,7 +53,7 @@ chain:
         on-success: "setup_db"
     -
         name: "setup_db"
-        ref: "mistral-dev.setup_db"
+        ref: "mistral_dev.setup_db"
         params:
             hosts: "{{host}}"
             mistral_path: "{{clone_mistral[host].stdout}}"
@@ -66,7 +66,7 @@ chain:
         on-success: "setup_service"
     -
         name: "setup_service"
-        ref: "mistral-dev.setup_service"
+        ref: "mistral_dev.setup_service"
         params:
             hosts: "{{host}}"
             distro: "{{distro}}"

@@ -11,14 +11,14 @@ chain:
         on-failure: "uninstall"
     -
         name: "uninstall"
-        ref: "mistral-dev.uninstall"
+        ref: "mistral_dev.uninstall"
         params:
             hosts: "{{host}}"
             distro: "{{distro}}"
         on-success: "teardown_db"
     -
         name: "teardown_db"
-        ref: "mistral-dev.teardown_db"
+        ref: "mistral_dev.teardown_db"
         params:
             hosts: "{{host}}"
             db_type: "{{db_type}}"

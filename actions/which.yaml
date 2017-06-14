@@ -1,6 +1,6 @@
 ---
 name: "which"
-pack: "mistral-dev"
+pack: "mistral_dev"
 runner_type: "run-local-script"
 description: "Return which mistral repo is currently set for development."
 enabled: true

@@ -1,6 +1,6 @@
 version: '2.0'
 
-mistral-dev.teardown:
+mistral_dev.teardown:
     description: Teardown a running instance of Mistral.
     type: direct
     input:
@@ -38,13 +38,13 @@ mistral-dev.teardown:
                 - remove_repos
 
         uninstall:
-            action: mistral-dev.uninstall
+            action: mistral_dev.uninstall
             input:
                 hosts: <% $.host %>
                 distro: <% $.distro %>
 
         teardown_db:
-            action: mistral-dev.teardown_db
+            action: mistral_dev.teardown_db
             input:
                 hosts: <% $.host %>
                 db_type: <% $.db_type %>
