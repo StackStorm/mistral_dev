@@ -38,13 +38,6 @@ cd ${REPO_MAIN}
 pip install -q -r requirements.txt
 pip install gunicorn
 
-# Temporary hack to bypass conflict in pbr version.
-VENV_PKG_DIR="${REPO_MAIN}/.venv/local/lib/python2.7/site-packages"
-YAQL_REQ_FILE="${VENV_PKG_DIR}/yaql-0.2.7-py2.7.egg-info/requires.txt"
-if [[ -f "${YAQL_REQ_FILE}" ]]; then
-    sed -i 's/pbr>=0.6,!=0.7,<1.0/pbr<2.0,>=0.11/g' ${YAQL_REQ_FILE}
-fi
-
 # Temporary hack to get around oslo.utils bug.
 pip install -q netifaces
 
