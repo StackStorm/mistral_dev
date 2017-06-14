@@ -35,7 +35,6 @@ pip install "amqp>=1.4.0,<2.0.0"
 
 # Setup mistral.
 cd ${REPO_MAIN}
-sed -i 's/yaql>=0.2.7,!=0.3.0/yaql>=0.2.7,!=0.3.0,<1.0.0/g' requirements.txt
 pip install -q -r requirements.txt
 pip install gunicorn
 
