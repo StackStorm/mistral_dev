@@ -35,6 +35,7 @@ pip install "amqp>=1.4.0,<2.0.0"
 
 # Setup mistral.
 cd ${REPO_MAIN}
+
 # NB! Sync 'requirements.txt' replacements with recent injects in 'st2-packages'
 # Latest: https://github.com/StackStorm/st2-packages/blob/9535deee32bc121a601c9bb885c49cec22cd6022/packages/st2mistral/Makefile#L74-L77
 grep -q 'gunicorn' requirements.txt || echo "gunicorn" >> requirements.txt
@@ -42,13 +43,6 @@ grep -q 'psycopg2' requirements.txt || echo "psycopg2>=2.6.2,<2.7.0" >> requirem
 sed -i "s/^oslo.messaging.*/oslo.messaging==5.24.2/g" requirements.txt
 
 pip install -q -r requirements.txt
-
-# Temporary hack to bypass conflict in pbr version.
-VENV_PKG_DIR="${REPO_MAIN}/.venv/local/lib/python2.7/site-packages"
-YAQL_REQ_FILE="${VENV_PKG_DIR}/yaql-0.2.7-py2.7.egg-info/requires.txt"
-if [[ -f "${YAQL_REQ_FILE}" ]]; then
-    sed -i 's/pbr>=0.6,!=0.7,<1.0/pbr<2.0,>=0.11/g' ${YAQL_REQ_FILE}
-fi
 
 # Temporary hack to get around oslo.utils bug.
 pip install -q netifaces
