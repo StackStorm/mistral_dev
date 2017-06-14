@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 REPO_MAIN=$1
 REPO_CLIENT=$2
