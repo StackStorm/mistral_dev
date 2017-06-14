@@ -41,6 +41,7 @@ cd ${REPO_MAIN}
 grep -q 'gunicorn' requirements.txt || echo "gunicorn" >> requirements.txt
 grep -q 'psycopg2' requirements.txt || echo "psycopg2>=2.6.2,<2.7.0" >> requirements.txt
 sed -i "s/^oslo.messaging.*/oslo.messaging==5.24.2/g" requirements.txt
+sed -i "s/^Babel.*/Babel>=2.3.4,!=2.4.0 # BSD/g" requirements.txt
 
 pip install -q -r requirements.txt
 
