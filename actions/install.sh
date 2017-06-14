@@ -35,8 +35,15 @@ pip install "amqp>=1.4.0,<2.0.0"
 
 # Setup mistral.
 cd ${REPO_MAIN}
+
+# NB! Sync 'requirements.txt' replacements with recent injects in 'st2-packages'
+# Latest: https://github.com/StackStorm/st2-packages/blob/9535deee32bc121a601c9bb885c49cec22cd6022/packages/st2mistral/Makefile#L74-L77
+grep -q 'gunicorn' requirements.txt || echo "gunicorn" >> requirements.txt
+grep -q 'psycopg2' requirements.txt || echo "psycopg2>=2.6.2,<2.7.0" >> requirements.txt
+sed -i "s/^oslo.messaging.*/oslo.messaging==5.24.2/g" requirements.txt
+sed -i "s/^Babel.*/Babel>=2.3.4,!=2.4.0 # BSD/g" requirements.txt
+
 pip install -q -r requirements.txt
-pip install gunicorn
 
 # Temporary hack to get around oslo.utils bug.
 pip install -q netifaces
