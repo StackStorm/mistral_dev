@@ -1,6 +1,6 @@
 version: '2.0'
 
-mistral-dev.setup:
+mistral_dev.setup:
     description: Setup a running instance of Mistral from git repo.
     type: direct
     input:
@@ -50,7 +50,7 @@ mistral-dev.setup:
                 - install
 
         install:
-            action: mistral-dev.install
+            action: mistral_dev.install
             input:
                 hosts: <% $.host %>
                 repo_main: <% $.clone_paths.get(mistral) %>
@@ -60,7 +60,7 @@ mistral-dev.setup:
                 - setup_config
 
         setup_config:
-            action: mistral-dev.setup_config
+            action: mistral_dev.setup_config
             input:
                 hosts: <% $.host %>
                 mistral_path: <% $.clone_paths.get(mistral) %>
@@ -73,7 +73,7 @@ mistral-dev.setup:
                 - setup_db
 
         setup_db:
-            action: mistral-dev.setup_db
+            action: mistral_dev.setup_db
             input:
                 hosts: <% $.host %>
                 mistral_path: <% $.clone_paths.get(mistral) %>
@@ -88,7 +88,7 @@ mistral-dev.setup:
                 - setup_api_server
 
         setup_service:
-            action: mistral-dev.setup_service
+            action: mistral_dev.setup_service
             input:
                 hosts: <% $.host %>
                 distro: <% $.distro %>
@@ -103,7 +103,7 @@ mistral-dev.setup:
                 cmd: service mistral start
 
         setup_api_server:
-            action: mistral-dev.setup_api_server
+            action: mistral_dev.setup_api_server
             input:
                 hosts: <% $.host %>
                 distro: <% $.distro %>
@@ -120,7 +120,7 @@ mistral-dev.setup:
 
         # Declare error handler(s) here
         teardown:
-            action: mistral-dev.teardown
+            action: mistral_dev.teardown
             input:
                 host: <% $.host %>
                 distro: <% $.distro %>

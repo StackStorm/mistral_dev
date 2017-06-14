@@ -1,5 +1,5 @@
 ---
-name : mistral-dev
+name : mistral_dev
 description : st2 content pack for mistral development.
 version : 0.1
 author : st2-dev

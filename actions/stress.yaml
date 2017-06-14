@@ -1,6 +1,6 @@
 {
     "name": "stress",
-    "pack": "mistral-dev",
+    "pack": "mistral_dev",
     "runner_type": "run-python",
     "description": "Action to stress test  mistral.",
     "enabled": true,
