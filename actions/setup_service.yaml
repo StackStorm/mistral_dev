@@ -1,6 +1,6 @@
 ---
   name: "setup_service"
-  runner_type: "run-remote-script"
+  runner_type: "remote-shell-script"
   description: "Setup mistral to run as a service."
   enabled: true
   entry_point: "setup_service.sh"
