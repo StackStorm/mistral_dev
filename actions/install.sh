@@ -36,6 +36,10 @@ pip install "amqp>=1.4.0,<2.0.0"
 # Setup mistral.
 cd ${REPO_MAIN}
 
+echo "${REPO_MAIN}"
+echo "===== initial contents of requirements.txt ====="
+cat requirements.txt
+
 # NB! Sync 'requirements.txt' replacements with recent injects in 'st2-packages'
 # Latest: https://github.com/StackStorm/st2-packages/blob/9535deee32bc121a601c9bb885c49cec22cd6022/packages/st2mistral/Makefile#L74-L77
 grep -q 'gunicorn' requirements.txt || echo "gunicorn" >> requirements.txt
@@ -46,6 +50,9 @@ grep -q 'pika' requirements.txt || echo "pika<0.11,>=0.9" >> requirements.txt
 grep -q 'python-memcached' requirements.txt || echo "python-memcached" >> requirements.txt
 sed -i "s/^oslo.messaging.*/oslo.messaging==5.24.2/g" requirements.txt
 sed -i "s/^Babel.*/Babel>=2.3.4,!=2.4.0 # BSD/g" requirements.txt
+
+echo "===== Final contents of requirements.txt ====="
+cat requirements.txt
 
 pip install -q -r requirements.txt
 

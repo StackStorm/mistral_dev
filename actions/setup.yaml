@@ -42,7 +42,7 @@ parameters:
     required: true
   repo_dir:
     type: string
-    default: /home/stanley
+    default: /mnt/repos
   db_type:
     type: string
     default: postgresql
