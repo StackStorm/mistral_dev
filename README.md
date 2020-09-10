@@ -1,3 +1,7 @@
+> **DEPRECATED!**  
+> Mistral workflow engine is deprecated in favor of native StackStorm Orquesta Workflow Engine.  
+> Please use Orquesta instead: https://docs.stackstorm.com/orquesta/index.html
+
 # mistral_dev
 StackStorm Pack to automate various operations related to Mistral development, tesing and relase
 
